@@ -24,15 +24,29 @@ const EmployeeList = () => {
             <th>Employee Name</th>
             <th>Position</th>
             <th>Company</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {employee.map((emp, index) => (
-            <tr key={emp.id || index}>
+          {employee.map((emp) => (
+            <tr key={emp.id}>
               <td>{emp.empId}</td>
               <td>{emp.name}</td>
               <td>{emp.position}</td>
               <td>{emp.company}</td>
+              <td>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  className="me-2"
+                  onClick={() => navigate(`/edit-employee/${emp.id}`)}
+                >
+                  Edit
+                </Button>
+                <Button variant="danger" size="sm">
+                  Delete
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -12,7 +12,7 @@ const CRUDMain = () => {
         <Routes>
           <Route path="/" element={<EmployeeList />} />
           <Route path="/add-employee" element={<AddEmployee />} />
-          <Route path="/edit-employee" element={<EditEmployee />} />
+          <Route path="/edit-employee/:id" element={<EditEmployee />} />
         </Routes>
       </EmployeeStore>
     </Router>
