@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import EmployeeContext from "./EmployeeContext";
+import { useNavigate } from "react-router-dom";
 
 const AddEmployee = () => {
   const [validated, setValidated] = useState(false);
@@ -24,6 +25,7 @@ const AddEmployee = () => {
   };
 
   const { addEmployee } = useContext(EmployeeContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -34,6 +36,7 @@ const AddEmployee = () => {
       const employee = { id: Date.now(), empId, name, position, company };
       console.log(employee);
       addEmployee(employee);
+      navigate("/");
     }
     event.preventDefault();
     setFormData({ empId: "", name: "", position: "", company: "" });
