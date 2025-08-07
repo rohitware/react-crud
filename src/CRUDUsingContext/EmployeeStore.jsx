@@ -13,8 +13,14 @@ const EmployeeStore = ({ children }) => {
     setEmployee(employee.map((emp) => (emp.id === id ? updatedEmp : emp)));
   };
 
+  const deleteEmployee = (id) => {
+    setEmployee(employee.filter((emp) => emp.id != id));
+  };
+
   return (
-    <EmployeeContext.Provider value={{ employee, addEmployee, updateEmployee }}>
+    <EmployeeContext.Provider
+      value={{ employee, addEmployee, updateEmployee, deleteEmployee }}
+    >
       {children}
     </EmployeeContext.Provider>
   );

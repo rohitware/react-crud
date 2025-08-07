@@ -6,7 +6,7 @@ import EmployeeContext from "./EmployeeContext";
 import Table from "react-bootstrap/Table";
 const EmployeeList = () => {
   const navigate = useNavigate();
-  const { employee } = useContext(EmployeeContext);
+  const { employee, deleteEmployee } = useContext(EmployeeContext);
   return (
     <>
       <h3>Employee List</h3>
@@ -43,7 +43,13 @@ const EmployeeList = () => {
                 >
                   Edit
                 </Button>
-                <Button variant="danger" size="sm">
+                <Button
+                  variant="danger"
+                  size="sm"
+                  onClick={() => {
+                    deleteEmployee(emp.id);
+                  }}
+                >
                   Delete
                 </Button>
               </td>
