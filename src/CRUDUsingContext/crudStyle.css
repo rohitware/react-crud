@@ -1,0 +1,4 @@
+.addEmployeeBtn {
+  display: flex;
+  justify-content: flex-end;
+}
